@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        margin: 0%;
+        padding: 0%;
+         background-color: black; 
+
+    }
+    .container {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 70px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: antiquewhite;
+            height: 100vh;
+        }
+</style>
+<body>
+    <div class="container">
+        <span id = "fun"  onload="displayTime"></span>
+        
+    </div>
+    <script>
+        function displayTime(){
+            let datetime = new Date();
+             hrs = datetime.getHours();
+             min = datetime.getMinutes();
+             sec = datetime.getSeconds();
+             var session = "AM";
+
+
+            if(hrs == 0){
+                hrs = 12;
+            }
+            if(hrs >12){
+                hrs = hrs - 12;
+                session = "PM";
+            }
+
+        
+            hrs = hrs < 10 ? "0" + hrs : hrs;
+            min = min < 10 ? "0" + min : min;
+            sec = sec < 10 ? "0" + sec : sec;
+
+            
+            var kk = hrs + " " + min + " " + sec + " " + session;
+            var fun1 = document.getElementById("fun").innerHTML = kk;
+        
+
+            setTimeout(displayTime,1000);    
+            
+        }
+        
+        displayTime();
+    </script>
+</body>
+</html>
